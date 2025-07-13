@@ -1,4 +1,3 @@
-// Overwrite this file to implement a food detail and add-to-basket screen
 import SwiftUI
 
 struct FoodDetailView: View, Identifiable {
@@ -51,7 +50,7 @@ struct FoodDetailView: View, Identifiable {
     }
 
     private var quantityStepper: some View {
-        Stepper("Quantity: \(quantity)", value: $quantity, in: 1...10)
+        Stepper("Adet: \(quantity)", value: $quantity, in: 1...10)
     }
 
     var body: some View {
@@ -62,7 +61,7 @@ struct FoodDetailView: View, Identifiable {
 
                     if !food.options.isEmpty {
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Options:").font(.headline)
+                            Text("Seçenekler:").font(.headline)
                             ForEach(food.options, id: \.self) { option in
                                 Text(option)
                                     .font(.subheadline)
@@ -97,7 +96,7 @@ struct FoodDetailView: View, Identifiable {
                         basket.add(food: food, selectedIngredients: selectedIngredients, quantity: quantity)
                         dismiss()
                     }) {
-                        Text("Add to Basket")
+                        Text("Sepete Ekle")
                             .bold()
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -111,7 +110,7 @@ struct FoodDetailView: View, Identifiable {
             .navigationTitle(food.name)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") { dismiss() }
+                    Button("Kapat") { dismiss() }
                 }
             }
         }

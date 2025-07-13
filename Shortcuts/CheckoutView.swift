@@ -1,4 +1,3 @@
-// Overwrite this file to implement a simple checkout screen for reviewing basket contents
 import SwiftUI
 
 struct CheckoutView: View {
@@ -48,7 +47,7 @@ struct CheckoutView: View {
                 Button(action: {
                     showConfirmation = true
                 }) {
-                    Text("Pay")
+                    Text("Öde")
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding()

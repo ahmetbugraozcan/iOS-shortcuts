@@ -14,7 +14,7 @@ struct BasketView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section(header: Text("Basket").font(.headline).padding(.top, 4)) {
+                Section(header: Text("Sepet").font(.headline).padding(.top, 4)) {
                     ForEach(basket.orders) { order in
                         VStack(alignment: .leading, spacing: 8) {
                             HStack(alignment: .top, spacing: 12) {
@@ -43,7 +43,7 @@ struct BasketView: View {
                                             .fixedSize(horizontal: false, vertical: true)
                                     }
                                     if !order.selectedIngredients.isEmpty {
-                                        Text("Ingredients: " + order.selectedIngredients.map { $0.name }.joined(separator: ", "))
+                                        Text("İçindekiler: " + order.selectedIngredients.map { $0.name }.joined(separator: ", "))
                                             .font(.caption)
                                             .foregroundStyle(.secondary)
                                     }
@@ -55,19 +55,19 @@ struct BasketView: View {
                     }
                 }
             }
-            .navigationTitle("Basket")
+            .navigationTitle("Sepet")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") { /* Optionally handle dismiss */ }
+                    Button("Kapat") { }
                 }
             }
             .safeAreaInset(edge: .bottom) {
                 VStack(spacing: 12) {
                     HStack {
-                        Text("Total Items: \(totalItems)")
+                        Text("Sepet sayısı: \(totalItems)")
                             .font(.subheadline).bold()
                         Spacer()
-                        Text("Total Price: $\(totalPrice)")
+                        Text("Tutar: ₺\(totalPrice)")
                             .font(.subheadline).bold()
                     }
                     .padding(.horizontal)
@@ -75,7 +75,7 @@ struct BasketView: View {
                     Button(action: {
                         showCheckout = true
                     }) {
-                        Text("Checkout")
+                        Text("Ödeme Yap")
                             .bold()
                             .frame(maxWidth: .infinity)
                             .padding()

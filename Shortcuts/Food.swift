@@ -39,13 +39,10 @@ nonisolated enum FoodCategory: String, AppEnum, Codable, CaseIterable, Identifia
         }
     }
     
-    // 1) `Identifiable.id` artık non-isolated
     var id: String { rawValue }
 
-    // 2) AppEntity gereği tip adı
     static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Kategori")
 
-    // 3) Liste elemanı gösterimi de non-isolated
     static var caseDisplayRepresentations: [FoodCategory: DisplayRepresentation] = [
         .mainCourse: "Ana Yemek",
         .dessert:    "Tatlı",

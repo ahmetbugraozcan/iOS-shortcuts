@@ -14,7 +14,6 @@ struct ContentView: View {
         }
         .onAppear { ShortcutBridge.shared.appState = appState }
         .onReceive(appState.$latestAction) { action in
-            print("onrecieve latestaction is \(action) in contentview")
             if action == "openBasket" {
                 showBasket = true
             }

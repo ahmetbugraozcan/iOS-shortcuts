@@ -29,7 +29,6 @@ struct FoodsListView: View {
                 foodsListView
             }
             .onReceive(appState.$latestAction) { action in
-                // Intent’ten gelen rawValue string’i enum’a dönüştürüp seçiyoruz
                 if action == "filterCategory",
                    let raw = appState.filterCategory {
                     selectedCategory = FoodCategory(rawValue: raw)
@@ -167,8 +166,6 @@ struct FoodsListView: View {
         .listStyle(.plain)
     }
 }
-
-// MARK: – Buton Stilini Uzatmak İçin Kolay Extension
 
 private extension View {
     func categoryButtonStyle(isSelected: Bool) -> some View {
